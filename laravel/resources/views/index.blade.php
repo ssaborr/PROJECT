@@ -100,7 +100,7 @@
                     @guest
                         
                      
-                    <a href="{{route('login')}}" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block">Join Us</a>
+                    <a href="{{route('login')}}" class="btn btn-primary py-md-3 px-md-5  d-lg-block">Join Us</a>
 
                    
                     
