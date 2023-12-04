@@ -105,7 +105,7 @@
 
     <div class="body">
         <img class="img" src="{{asset('laravel/public/img/landing55.jpg')}}" style="width:100%;
-      object-fit: contain;" alt="">
+      object-fit:fill;height:120vh" alt="">
    
 
   <div class="form-container">

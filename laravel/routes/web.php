@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\qrcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/c', function () {
+Route::get('/', function () {
     return view('index');
 })->name('index');
-Route::get('/blog',function(){
-    return view('blog');
-})->name('blog');
+
 Route::get('/class',function(){
     return view('class');
 })->name('class');;
@@ -27,9 +26,12 @@ Route::get('/contact',function(){
 })->name('contact');;
 Route::get('/about',function(){
     return view('about');
-})->name('about');;
+})->name('about');
+Route::get('/reservation',[qrcontroller::class,'index'])->name('reservation');
 /* ha 7tithom li bghat t7yd 7ydoha  */
-
+Route::get('/reserer',function(){
+    return view('reserver');
+})->name('reserver');
 // Registration Routes
 Auth::routes();
 

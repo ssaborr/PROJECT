@@ -29,10 +29,85 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('laravel/public/css/style.css')}}" rel="stylesheet">
+    <style>
+            .a1{border-top: 5px solid;
+    border-right: 3px solid;
+    box-shadow: -3px 8px 10px 0px rgba(0, 0, 0, 0.5);
+    border-left: 3px solid;
+}
+.container1{
+    background-color: #f0f0f0;
+    margin-right: 3%;
+    margin-left: 3%;
+    display: grid;
+    grid-template-columns:repeat(3,1fr);
+    gap: 10px;
+    background-color: var(--dark)
+}
+/* Your existing CSS */
+.img-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--dark); 
+    opacity: 0.8; 
+}
+
+.img-container img {
+    width: 100%;
+    height: 100vh;
+    display: block;
+}
+
+.background1 {
+    height: 100vh;
+    background-size: cover;
+    background-image: url('laravel/public/img/south.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.background1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(34, 36, 41, 0.6);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+.aa:hover{
+    color:orange
+}
+.aaa:hover{
+    color:white
+}
+body{
+    background-color: var(--dark)
+}
+
+    </style>
     @yield('header')
 </head>
 
-
+@yield('main')
 
   <!-- Footer Start -->
   <div class="container-fluid bg-dark text-secondary px-5 mt-5">
