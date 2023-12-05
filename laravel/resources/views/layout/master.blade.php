@@ -110,7 +110,7 @@ body{
 @yield('main')
 
   <!-- Footer Start -->
-  <div class="container-fluid bg-dark text-secondary px-5 mt-5">
+  <div id="target2" class="container-fluid bg-dark text-secondary px-5 mt-5">
         <div class="row gx-5">
             <div class="col-lg-8 col-md-6">
                 <div class="row gx-5">
@@ -204,7 +204,7 @@ body{
     <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{asset('js/main.js')}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
 </body>
 
 </html>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\qrcontroller;
+use App\Http\Controllers\reservationcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,8 @@ Route::get('/reservation',[qrcontroller::class,'index'])->name('reservation');
 /* ha 7tithom li bghat t7yd 7ydoha  */
 Route::get('/reserer',function(){
     return view('reserver');
-})->name('reserver');
-// Registration Routes
+})->name('reserver')->middleware('auth');
 Auth::routes();
-
+Route::resource('reserver', reservationcontroller::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
