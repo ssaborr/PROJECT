@@ -63,7 +63,7 @@
           <div class="card-body"  style="border: 0;border-radius:0"  style="height:100vh;background-color:var(--dark)" >
               <h1 class="card-title text-white" style="font-size: auto">Reservez!</h1>
               <p class="card-text text-white" style="font-size: 150%;"  >"Vivez une expérience fitness fluide ! Réservez dès maintenant en scannant simplement le code QR. Assurez-vous de votre créneau horaire et de la disponibilité du matériel. Ne manquez pas l'opportunité de prioriser vos objectifs fitness - réservez sans souci et optimisez votre expérience en salle de sport en un simple scan !"</p>
-              <div ><a  href="{{route('reserver')}}">{!! $qrCode !!}</a></div>
+              <div style="border:white 3px solid ;border-radius:5px;width:fit-content"><a  href="{{route('reserver')}}">{!! $qrCode !!}</a></div>
        
               
           </div>

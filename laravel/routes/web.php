@@ -30,7 +30,7 @@ Route::get('/about',function(){
 })->name('about');
 Route::get('/reservation',[qrcontroller::class,'index'])->name('reservation');
 /* ha 7tithom li bghat t7yd 7ydoha  */
-Route::get('/reserer',function(){
+Route::get('/reserve',function(){
     return view('reserver');
 })->name('reserver')->middleware('auth');
 Auth::routes();
