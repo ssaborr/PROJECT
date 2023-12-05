@@ -52,17 +52,17 @@
       </div>
   </div>
 </div>
-<div id="target" class="card mb-3" style="max-width:1fr;border:0;border-radius:0" >
+<div id="target" class="card mb-3" style="max-width:1fr;border-right:0;border-left:0;border-radius:0" >
   <div class="row g-0"  style="border: 0;border-radius:0">
       <div class="col-md-4"  style="border: 0;border-radius:0">
           <div class="img-container" style="border: 0;border-radius:0;">
               <img src="laravel/public/img/south2.jpg" id="img1" class="img-fluid rounded-start" alt="..."  style="border: 0;border-radius:0">
           </div>
       </div>
-      <div class="col-md-8" >
-          <div class="card-body"  style="border: 0;border-radius:0"  style="height:100vh" >
-              <h1 class="card-title" style="font-size: auto">Reservez!</h1>
-              <p class="card-text" style="font-size: 150%;"  >"Vivez une expérience fitness fluide ! Réservez dès maintenant en scannant simplement le code QR. Assurez-vous de votre créneau horaire et de la disponibilité du matériel. Ne manquez pas l'opportunité de prioriser vos objectifs fitness - réservez sans souci et optimisez votre expérience en salle de sport en un simple scan !"</p>
+      <div class="col-md-8" style="background-color:var(--dark)" >
+          <div class="card-body"  style="border: 0;border-radius:0"  style="height:100vh;background-color:var(--dark)" >
+              <h1 class="card-title text-white" style="font-size: auto">Reservez!</h1>
+              <p class="card-text text-white" style="font-size: 150%;"  >"Vivez une expérience fitness fluide ! Réservez dès maintenant en scannant simplement le code QR. Assurez-vous de votre créneau horaire et de la disponibilité du matériel. Ne manquez pas l'opportunité de prioriser vos objectifs fitness - réservez sans souci et optimisez votre expérience en salle de sport en un simple scan !"</p>
               <div ><a  href="{{route('reserver')}}">{!! $qrCode !!}</a></div>
        
               
