@@ -87,6 +87,16 @@
     margin-top: 10px;
     text-decoration: none;
 }
+@media (max-width: 576px) {
+    .body{
+        display:grid;
+        grid-template-columns:1fr;
+    }
+    .img{
+        
+        display:none
+    }
+}
 
     </style>
     <link rel="stylesheet" href="styles.css">
@@ -94,7 +104,7 @@
 <body>
 
     <div class="body">
-    <img src="laravel/public/img/landing55.jpg" style="width:100%;
+    <img class="img" src="laravel/public/img/landing55.jpg" style="width:100%;
       object-fit: contain;" alt="">
 
   <div class="form-container">

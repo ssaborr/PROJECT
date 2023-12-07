@@ -46,29 +46,25 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="{{route('index')}}" class="nav-item nav-link">Home</a>
-                        <a href="{{route('reservation')}}" class="nav-item nav-link  active">reservation</a>
-                        <a href="{{route('class')}}" class="nav-item nav-link">Classes</a>
-                        <a href="" class="nav-item nav-link">Trainers</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                                <a href="detail.html" class="dropdown-item">Blog Detail</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                
-
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="{{route('index')}}" class="nav-item nav-link  ">Home</a>
+                        <a href="{{route('reservation')}}" class="nav-item nav-link  {{ request()->routeIs('reservation') ? 'active' : '' }}">reservation</a>
+                        <a href="{{route('video.index')}}" class="nav-item nav-link  {{ request()->routeIs('video.index') ? 'active' : '' }}">programs</a>
+                        <a href="" class="nav-item nav-link  ">boutique</a>
+                       
+                        <a href="contact.html" class="nav-item nav-link  {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>
+                        @auth
+                        @if(Auth::user()->id==3)
+                        <a class="nav-item nav-link" href="{{route('adminvideo.index')}}">admin panneau</a>
+                        @endauth
+                        @endif
                         @guest
-                        <a href="{{route('login')}}" class="nav-item nav-link">Join Us</a>
+                        <a href="{{route('login')}}" class="nav-item nav-link ">Join Us</a>
                         @else
                          <li class="nav-item dropdown" style="list-style:none;">
                         <a style="font-size:20px" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
-
+                        
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

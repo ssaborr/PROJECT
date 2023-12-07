@@ -29,6 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('laravel/public/css/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
             .a1{border-top: 5px solid;
     border-right: 3px solid;
@@ -66,6 +67,56 @@
     height: 100vh;
     display: block;
 }
+.programcontainer{
+    background-color: var(--dark); margin-right: 5%; margin-left: 10%; display: grid; grid-template-columns: repeat(4, 1fr);gap:20px;
+
+}
+.videocontainer{
+  order: 1;background-color: var(--dark); margin-right: 5%; margin-left: 10%; display: grid; grid-template-columns: 1fr 30%; gap: 20px;
+}
+
+.order3{
+    order: 3
+}
+#linee{
+    border: white 0.5px solid;
+
+}
+.extra{
+    order:2
+}
+.order4{
+    order: 4;
+}
+@media( max-width:600px){
+.programcontainer{
+    grid-template-columns:100%; 
+}
+.videocontainer{
+    grid-template-columns:100%;
+    padding: 0;
+    max-width: 100%;
+    grid-auto-flow: row;
+}
+.extra{
+    grid-column:span 2;
+    order:4
+}
+.order4{
+    order: 3
+}
+.order3{
+    order:2;
+    max-width: 100vw;
+}
+
+
+.shownvideo{
+    width: 80%
+    
+}
+}
+
 
 .background1 {
     height: 100vh;
@@ -101,10 +152,77 @@
 }
 body{
     background-color: var(--dark)
+
+}
+.image-container3 {
+  position: relative;
+  display: inline-block;
+  border-radius:7px;
+}
+.image-container3:hover{
+    border-radius:0;
+    transition: 0.5s;
+}
+.btnempty{
+    border:0;
+    background-color:var(--dark);
+    color:white;
+    padding:0;border-top:0;border-right:0;border-left:0;border-bottom:white 2px solid;border-radius:0
+
+}
+.btnempty2{
+    border:0;
+    background-color:var(--dark);
+    color:white;
+   
+
+}
+.img3 {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.bc:focus {
+        outline: none; /* Remove default focus outline */
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0); 
+    }
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color:var(--primary);
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease;
+}
+
+.image-container3:hover  .play-button {
+  opacity: 0.8; /* Show on hover */
+ 
+}
+
+.play-button::after {
+  content: "\25BA"; /* Unicode for right-pointing triangle (play icon) */
+  font-size: 36px;
+  color: white;
+  display: block;
+  margin-left: 5px;
+  text-align: center;
+  line-height: 60px;
+}
+.pp{
+    color: white
+}
+.cc:hover .pp{
+    color: var(--primary)
 }
 
     </style>
     @yield('header')
+    <link href="laravel/public/css/mycss.css" rel="stylesheet">
 </head>
 
 @yield('main')

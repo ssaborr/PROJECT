@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="{{asset('img/favicon.ico')}}" rel="icon">
+    <link href="{{asset('laravel/public/img/favicon.ico')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,17 +18,17 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="{{asset('lib/flaticon/font/flaticon.css')}}" rel="stylesheet">
+    <link href="{{asset('laravel/public/lib/flaticon/font/flaticon.css')}}" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('laravel/public/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('laravel/public/css/bootstrap.min.css') }}" rel="stylesheet">
 
 
     <!-- Template Stylesheet -->
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('laravel/public/css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -155,32 +155,40 @@
         <div class="row g-0">
             <div class="col-lg-6">
                 <div class="bg-dark p-5">
-                    <form>
+                    <form action="{{route('message.store')}}" method="POST">
+                        @csrf
                         <div class="row g-3">
                             <div class="col-6">
-                                <input type="text" class="form-control bg-light border-0 px-4" placeholder="Your Name" style="height: 55px;">
+                                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                <input type="text" disabled value="{{Auth::user()->name}}" disabled class="form-control bg-grey border-0 px-4" placeholder="Votre Nom" style="height: 55px;">
                             </div>
                             <div class="col-6">
-                                <input type="email" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
+                                <input name="email" value="{{Auth::user()->email}}" class="form-control bg-grey border-0 px-4" placeholder="Votre Adresse Email" style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control bg-light border-0 px-4" placeholder="Subject" style="height: 55px;">
+                                <input type="text" name="titre" class="form-control bg-light border-0 px-4" placeholder="Sujet" style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control bg-light border-0 px-4 py-3" rows="4" placeholder="Message"></textarea>
+                                <textarea class="form-control bg-light border-0 px-4 py-3" name="content" rows="4" placeholder="Message"></textarea>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                <button class="btn btn-primary w-100 py-3" type="submit">Envoyer Le Message</button>
                             </div>
+                            <div class="col-12">
+                                @if(session('done'))
+                            <div class="alert alert-info">{{session('done')}}</div>
+                                @endif
+                                @error('content')
+                                <div class="alert alert-primary">{{$message}}</div>
+                                @enderror
                         </div>
+                            </div>
+                            
                     </form>
                 </div>
             </div>
             <div class="col-lg-6">
-                <iframe class="w-100"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                    frameborder="0" style="height: 457px; border:0;" allowfullscreen="" aria-hidden="false"
-                    tabindex="0"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13293.698500188424!2d-7.6013198!3d33.5942854!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd65706e85d7%3A0x327a13462f2a3fc9!2sCentre%20Philips!5e0!3m2!1sen!2sma!4v1701895698269!5m2!1sen!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
@@ -244,7 +252,7 @@
                     <p class="text-light">Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
                     <form action="">
                         <div class="input-group">
-                            <input type="text" class="form-control border-white p-3" placeholder="Your Email">
+                            <input type="text" class="form-control border-white p-3" placeholder="Votre Adresse Email">
                             <button class="btn btn-dark">Sign Up</button>
                         </div>
                     </form>

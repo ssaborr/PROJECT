@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\qrcontroller;
 use App\Http\Controllers\reservationcontroller;
+use App\Http\Controllers\adminvideocontroller;
+use App\Http\Controllers\videoscontroller;
+use App\Http\Controllers\commentairecontroller;
+use App\Http\Controllers\messagecontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +28,7 @@ Route::get('/class',function(){
 })->name('class');;
 Route::get('/contact',function(){
     return view('contact');
-})->name('contact');;
+})->name('contact')->middleware('auth');
 Route::get('/about',function(){
     return view('about');
 })->name('about');
@@ -35,5 +39,9 @@ Route::get('/reserve',function(){
 })->name('reserver')->middleware('auth');
 Auth::routes();
 Route::resource('reserver', reservationcontroller::class);
+Route::resource('message', messagecontroller::class);
+Route::resource('adminvideo', adminvideocontroller::class);
+Route::resource('commentaire', commentairecontroller::class);
+Route::resource('video', videoscontroller::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
